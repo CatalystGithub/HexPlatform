@@ -1,0 +1,45 @@
+
+OYUNUN GENEL YAPISI
+	- Oyun küçük hex haritalardan oluþur. Oyuncu bu haritalar arasýnda ilerler. Her harita kendi içinde bazý özellikler barýndýrýr.
+	- Oyuncunun amacý haritalarý birer birer aþarak en sondaki bossa ulaþmaktýr. Boss yenildiðinde aþama biter ve bir sonraki aþama açýlýr.
+
+
+TÝLE
+	Tile Çeþitleri
+		Yürünebilir: Çimen, Kum, Çakýl, vs
+		Yürünemez: Su
+	Tile Objeleri
+		Dekorasyonlar: Sadece görünüm amaçlý. Kimileri engel kimileri deðil
+		Etkileþimli: Aðaç, Taþ, Sandýk gibi nesneler. Hepsi engel
+
+
+KARAKTER
+	- Tüm karakter nesneleri hp, def, atak ve özel bufflar gibi özelliklere sahip.
+	- Her bir tile üzerinde yalnýzca bir karakter bulunabilir
+	- Karakterler birbirleriyle etkileþime geçebilir.
+	Oyuncu: Ekipman seti, envanter, skiller olacak
+	Düþman: Temel deðerler dýþýnda drop özellikleri olacak
+	Neutral: Enerji orblarý olabilir.
+	NPC: Görev, ödül, buff, mini-oyun
+
+
+HAREKET MANTIÐI
+	- Oyuncu tilelar üzerinde ilerler. Her ilerleme bir tur sayýlýr. 
+	- Ýlerleme sayýsýný limitlemek gerek.
+		Fikir 1: Her levelda belli bir geri sayým olsun. Geri sayým bitince;
+			a) çýkýþ kapýsý kilitlensin ve level baþarýsýz olsun (çok acýmasýzca)
+			b) içerideki yaratýklar güçlensin, oyuncu hasar debuff alsýn (daha iyi bir yaklaþým)
+			c) leveldaki bloklar baþlangýç noktasýndan baþlayarak tek tek düþmeye baþlasýn (fena deðil. hem de oyuncuyu çýkýþa ilerlemeye zorlar)
+
+
+
+LEVEL DÝZAYN
+	Tile haritasý oluþumu
+	Level bitirme
+	Ödüller
+
+
+		GRASSLAND
+Tiles: Grass
+Resources: Oak Tree(T1), Stone(T1), Fish(T1), Green Essence
+Monsters: Skeleton, Zombie, Wolf

@@ -4,15 +4,17 @@ using UnityEngine.EventSystems;
 public class PlayerInput : MonoBehaviour
 {
     private Camera cam;
-    public GameObject playerObj;
+    public CameraFollow cameraFollow;
+    public Character playerObj;
 
     void Start()
     {
         cam = Camera.main;
-        SetPlayerPosition(0, 1);
+        MovePlayer(0, 1);
+        cameraFollow.target = playerObj.transform;
     }
 
-    private void SetPlayerPosition(int x, int y)
+    private void MovePlayer(int x, int y)
     {
         Vector3 pos = HexMetrics.HexToWorld(x, y);
         pos.y = 2;
@@ -32,10 +34,10 @@ public class PlayerInput : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit, Mathf.Infinity))
             {
-                HexObject block = hit.collider.GetComponent<HexObject>();
+                HexBase block = hit.collider.GetComponent<HexBase>();
                 if (block != null)
                 {
-                    SetPlayerPosition(block.tile.x, block.tile.y);
+                    MovePlayer(block.tileData.x, block.tileData.y);
                     block.OnClicked();
                 }
             }
